@@ -15,7 +15,9 @@ class TritonPythonModel(object):
 
     def initialize(self, args):
         dir_path = os.path.dirname(os.path.realpath(__file__))
-        self.feature_extractor = AutoFeatureExtractor.from_pretrained(dir_path + '/config.json')
+        self.feature_extractor = AutoFeatureExtractor.from_pretrained(
+            f'{dir_path}/config.json'
+        )
 
     def execute(self, inference_requests: List[InferenceRequest]) -> List[InferenceResponse]:
         input_name = 'input'

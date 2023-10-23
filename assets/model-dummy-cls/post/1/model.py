@@ -34,7 +34,7 @@ class TritonPythonModel(object):
         for request in inference_requests:
             batch_out = {k: [] for k, name in self.output_names.items(
             ) if name in request.requested_output_names()}
-            for i in range(request.inputs()[0].as_numpy().shape[0]):
+            for _ in range(request.inputs()[0].as_numpy().shape[0]):
                 batch_out['output'].append([0, 1])
 
             # Format outputs to build an InferenceResponse
